@@ -1,0 +1,231 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.1
+date	2014.05.25.20.00.52;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: interp.cpp,v 1.3 2014-05-11 04:56:09-07 - - $
+
+#include <map>
+#include <memory>
+#include <string>
+#include <vector>
+using namespace std;
+
+#include <GL/freeglut.h>
+
+#include "debug.h"
+#include "interp.h"
+#include "shape.h"
+#include "util.h"
+
+map<string,interpreter::interpreterfn> interpreter::interp_map {
+   {"define"   , &interpreter::do_define},
+   {"draw"     , &interpreter::do_draw  },
+   {"border"   , &interpreter::do_border},
+   {"moveby"   , &interpreter::do_moveby},
+};
+
+map<string,interpreter::factoryfn> interpreter::factory_map {
+   {"text"          , &interpreter::make_text          },
+   {"ellipse"       , &interpreter::make_ellipse       },
+   {"circle"        , &interpreter::make_circle        },
+   {"polygon"       , &interpreter::make_polygon       },
+   {"rectangle"     , &interpreter::make_rectangle     },
+   {"square"        , &interpreter::make_square        },
+   {"diamond"       , &interpreter::make_diamond       },
+   {"triangle"      , &interpreter::make_triangle      },
+   {"right_triangle", &interpreter::make_right_triangle},
+   {"isosceles"     , &interpreter::make_isosceles     },
+   {"equilateral"   , &interpreter::make_equilateral   },
+};
+
+interpreter::~interpreter() {
+   for (const auto& itor: objmap) {
+      cout << "objmap[" << itor.first << "] = "
+           << *itor.second << endl;
+   }
+}
+
+//a wrapper to map-call a command
+void interpreter::interpret (const parameters& params) {
+   DEBUGF ('i', params);
+   param begin = params.cbegin();
+   string command = *begin;
+   auto itor = interp_map.find (command);
+   if (itor == interp_map.end()) throw runtime_error ("syntax error");
+   interpreterfn func = itor->second;
+   (this->*func) (++begin, params.cend());
+}
+
+void interpreter::do_define (param begin, param end) {
+   DEBUGF ('f', range (begin, end));
+   string name = *begin;
+   objmap.insert ({name, make_shape (++begin, end)});
+}
+
+void interpreter::do_border (param begin, param end) {
+   DEBUGF ('f', range (begin, end));
+   if ( end - begin != 2)
+      throw runtime_error ("syntax error");
+   rgbcolor color{begin[0]} ; // string name color
+   GLfloat thickness{stof (begin[1])};
+   (void) thickness;
+   cout<<"border setting is not implemented"<<endl;
+   //window::bsize(4);
+}
+
+void interpreter::do_moveby (param begin, param end) {
+   DEBUGF ('f', range (begin, end));
+   cout<< "change moveby res is not implemented" << endl;
+}
+
+
+void interpreter::do_draw (param begin, param end) {
+   DEBUGF ('f', range (begin, end));
+   if (end - begin != 4) throw runtime_error ("syntax error");
+   //string color = begin [0];
+   string name = begin[1];
+   shape_map::const_iterator itor = objmap.find (name);
+   if (itor == objmap.end()) {
+      throw runtime_error (name + ": no such shape");
+   }
+   vertex center {from_string<GLfloat> (begin[2]),
+                 from_string<GLfloat> (begin[3])};
+   rgbcolor color {begin[0]};
+
+
+   object drawobj(itor->second, center, color);
+   window::push_back(drawobj);
+   //just move it to object waited to be drawed
+   //itor->second->draw (where, color);
+}
+
+shape_ptr interpreter::make_shape (param begin, param end) {
+   DEBUGF ('f', range (begin, end));
+   string type = *begin++;
+   auto itor = factory_map.find(type);
+   if (itor == factory_map.end()) {
+      throw runtime_error (type + ": no such shape");
+   }             
+   factoryfn func = itor->second;
+   return (this->*func) (begin, end);
+}
+
+shape_ptr interpreter::make_text (param begin, param end) {
+   DEBUGF ('f', range (begin, end));
+   if ( end - begin < 1)
+      throw runtime_error ("syntax error");
+   string fontstr(*begin);
+   string textstr;
+   if(++begin != end) textstr.append( *begin );
+   while(++begin != end)
+      textstr.append(" " + *begin );
+   return make_shared<text> (fontstr, textstr);
+}
+
+shape_ptr interpreter::make_ellipse (param begin, param end) {
+   DEBUGF ('f', range (begin, end));
+   if ( end - begin != 2)
+      throw runtime_error ("syntax error");
+   GLfloat width (stof (*begin));
+   GLfloat height (stof (*(++begin)));
+   return make_shared<ellipse> (width, height);
+}
+
+shape_ptr interpreter::make_circle (param begin, param end) {
+   DEBUGF ('f', range (begin, end));
+   if ( end - begin != 1)
+      throw runtime_error ("syntax error");
+   GLfloat diameter (stof (*begin));
+   return make_shared<circle> (diameter);
+}
+
+shape_ptr interpreter::make_polygon (param begin, param end) {
+   DEBUGF ('f', range (begin, end));
+   if ( (end - begin) % 2 != 0) throw runtime_error ("even points");
+   vertex_list vlist;
+   while(begin != end){
+      GLfloat v1 (stof (*begin));
+      GLfloat v2 (stof (*(++begin)));
+      vlist.push_back(vertex{v1,v2});
+      ++begin;
+   }
+   return make_shared<polygon> (vlist);
+}
+
+shape_ptr interpreter::make_rectangle (param begin, param end) {
+   DEBUGF ('f', range (begin, end));
+   if ( end - begin != 2) throw runtime_error ("syntax error");
+   GLfloat width (stof (*begin));
+   GLfloat height (stof (*(++begin)));
+   return make_shared<rectangle> (width, height);
+}
+
+shape_ptr interpreter::make_square (param begin, param end) {
+   DEBUGF ('f', range (begin, end));
+   if ( end - begin != 1) throw runtime_error ("syntax error");
+   GLfloat width (stof (*begin));
+   return make_shared<square> (width);
+}
+
+shape_ptr interpreter::make_diamond (param begin, param end){
+   DEBUGF ('f', range (begin, end));
+   if ( end - begin != 2) throw runtime_error ("syntax error");
+   GLfloat width (stof (*begin));
+   GLfloat height (stof (*(++begin)));
+   return make_shared<diamond> (width, height);
+}
+
+shape_ptr interpreter::make_triangle (param begin, param end){
+   DEBUGF ('f', range (begin, end));
+   if ( end - begin != 6) throw runtime_error ("syntax error");
+   vertex_list vlist;
+   while(begin != end){
+      GLfloat v1 (stof (*begin));
+      GLfloat v2 (stof (*(++begin)));
+      vlist.push_back(vertex{v1,v2});
+      ++begin;
+   }
+   return make_shared<triangle> (vlist);
+}
+
+shape_ptr interpreter::make_right_triangle(param begin, param end){
+   DEBUGF ('f', range (begin, end));
+   if ( end - begin != 2) throw runtime_error ("syntax error");
+   GLfloat width (stof (*begin));
+   GLfloat height (stof (*(++begin)));
+   return make_shared<right_triangle> (width, height);
+}
+
+shape_ptr interpreter::make_isosceles (param begin, param end){
+   DEBUGF ('f', range (begin, end));
+   if ( end - begin != 2) throw runtime_error ("syntax error");
+   GLfloat width (stof (*begin));
+   GLfloat height (stof (*(++begin)));
+   return make_shared<isosceles> (width, height);
+}
+
+shape_ptr interpreter::make_equilateral (param begin, param end){
+   DEBUGF ('f', range (begin, end));
+   if ( end - begin != 1) throw runtime_error ("syntax error");
+   GLfloat width (stof (*begin));
+   return make_shared<equilateral> (width);
+}
+@

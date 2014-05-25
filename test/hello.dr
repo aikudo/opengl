@@ -1,0 +1,24 @@
+# $Id: hello.dr,v 1.1 2013-02-01 17:00:06-08 - - $
+define hello text Times-Roman-24 Hello, world!
+draw red hello 400 400
+define hello2 text Helvetica-10 Another Text
+draw blue hello2 200 200
+define ell2 ellipse 100 150
+draw violet ell2 400 100
+define cir1 circle 100
+draw red cir1 300 300
+define poly polygon 70 70 70 100 200 100 200 70 60 50 40 30
+#draw red poly 0 0
+draw red poly 200 300
+define rec1 rectangle 150 200
+draw green rec1 100 300
+define sq square 90
+draw green sq 300 100
+define eq equilateral 90
+draw yellow eq 120 120
+define dia diamond  100 50
+draw yellow dia 200 200
+define rtrig right_triangle  200 100
+draw pink rtrig 300 100
+define isoce isosceles 100 200
+draw pink isoce 150 80

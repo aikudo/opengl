@@ -1,0 +1,194 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALLSOURCES	Makefile	/^ALLSOURCES  = ${CPPHEADER} ${TEMPLATES} ${CPPSOURCE} ${OTHERS}$/;"	m
+BS	graphics.cpp	/^enum {BS=8, TAB=9, ESC=27, SPACE=32, DEL=127};$/;"	e	enum:__anon1	file:
+BS	object.cpp	/^enum {BS=8, TAB=9, ESC=27, SPACE=32, DEL=127};$/;"	e	enum:__anon3	file:
+CLASS	Makefile	/^CLASS       = cmps109-wm.u13$/;"	m
+COMPILECPP	Makefile	/^COMPILECPP  = g++ -g -O0 -Wall -Wextra -std=gnu++11$/;"	m
+CPPHEADER	Makefile	/^CPPHEADER   = ${MODULES:=.h}$/;"	m
+CPPSOURCE	Makefile	/^CPPSOURCE   = ${MODULES:=.cpp} main.cpp$/;"	m
+DEBUGF	debug.h	45;"	d
+DEBUGF	debug.h	48;"	d
+DEBUGS	debug.h	46;"	d
+DEBUGS	debug.h	54;"	d
+DEL	graphics.cpp	/^enum {BS=8, TAB=9, ESC=27, SPACE=32, DEL=127};$/;"	e	enum:__anon1	file:
+DEL	object.cpp	/^enum {BS=8, TAB=9, ESC=27, SPACE=32, DEL=127};$/;"	e	enum:__anon3	file:
+DEPFILE	Makefile	/^DEPFILE     = ${MKFILE}.dep$/;"	m
+ESC	graphics.cpp	/^enum {BS=8, TAB=9, ESC=27, SPACE=32, DEL=127};$/;"	e	enum:__anon1	file:
+ESC	object.cpp	/^enum {BS=8, TAB=9, ESC=27, SPACE=32, DEL=127};$/;"	e	enum:__anon3	file:
+EXECBIN	Makefile	/^EXECBIN     = gdraw$/;"	m
+GENFILES	Makefile	/^GENFILES    = colors.cppgen$/;"	m
+GMAKE	Makefile	/^GMAKE       = ${MAKE} --no-print-directory$/;"	m
+LINKLIBS	Makefile	/^LINKLIBS    = -lGL -lGLU -lglut -lm$/;"	m
+LISTING	Makefile	/^LISTING     = Listing.ps$/;"	m
+MAKEDEPCPP	Makefile	/^MAKEDEPCPP  = g++ -MM -std=gnu++11$/;"	m
+MKFILE	Makefile	/^MKFILE      = Makefile$/;"	m
+MODULES	Makefile	/^MODULES     = debug graphics interp rgbcolor shape util$/;"	m
+NEEDINCL	Makefile	/^NEEDINCL    = ${filter ${NOINCL}, ${MAKECMDGOALS}}$/;"	m
+NOINCL	Makefile	/^NOINCL      = ci clean spotless$/;"	m
+OBJECTS	Makefile	/^OBJECTS     = ${CPPSOURCE:.cpp=.o}$/;"	m
+OTHERS	Makefile	/^OTHERS      = ${MKFILE} README mk-colors.perl$/;"	m
+PROJECT	Makefile	/^PROJECT     = asg3$/;"	m
+SPACE	graphics.cpp	/^enum {BS=8, TAB=9, ESC=27, SPACE=32, DEL=127};$/;"	e	enum:__anon1	file:
+SPACE	object.cpp	/^enum {BS=8, TAB=9, ESC=27, SPACE=32, DEL=127};$/;"	e	enum:__anon3	file:
+TAB	graphics.cpp	/^enum {BS=8, TAB=9, ESC=27, SPACE=32, DEL=127};$/;"	e	enum:__anon1	file:
+TAB	object.cpp	/^enum {BS=8, TAB=9, ESC=27, SPACE=32, DEL=127};$/;"	e	enum:__anon3	file:
+TEMPLATES	Makefile	/^TEMPLATES   = util.tcc$/;"	m
+__DEBUG_H__	debug.h	4;"	d
+__GRAPHICS_H__	graphics.h	4;"	d
+__INTERP_H__	interp.h	4;"	d
+__RGBCOLOR_H__	rgbcolor.h	4;"	d
+__SHAPE_H__	shape.h	4;"	d
+__UTIL_H__	util.h	10;"	d
+blue	rgbcolor.h	/^         uchar blue;$/;"	m	struct:rgbcolor::__anon4::__anon5
+center	graphics.h	/^      vertex center;$/;"	m	class:object
+circle	shape.cpp	/^circle::circle (GLfloat diameter): ellipse (diameter, diameter) {$/;"	f	class:circle
+circle	shape.h	/^class circle: public ellipse {$/;"	c
+close	graphics.cpp	/^void window::close() {$/;"	f	class:window
+close	object.cpp	/^void window::close() {$/;"	f	class:window
+color	graphics.h	/^      rgbcolor color;$/;"	m	class:object
+complain	util.cpp	/^ostream& complain() {$/;"	f
+datestring	util.cpp	/^const string datestring() {$/;"	f
+debugflags	debug.h	/^class debugflags {$/;"	c
+diamond	shape.h	/^class diamond: public polygon {$/;"	c
+dimension	shape.h	/^      vertex dimension;$/;"	m	class:ellipse
+display	graphics.cpp	/^void window::display() {$/;"	f	class:window
+display	object.cpp	/^void window::display() {$/;"	f	class:window
+do_define	interp.cpp	/^void interpreter::do_define (param begin, param end) {$/;"	f	class:interpreter
+do_draw	interp.cpp	/^void interpreter::do_draw (param begin, param end) {$/;"	f	class:interpreter
+draw	graphics.cpp	/^void mouse::draw() {$/;"	f	class:mouse
+draw	graphics.h	/^      void draw() { pshape->draw (center, color); }$/;"	f	class:object
+draw	object.cpp	/^void mouse_state::draw() {$/;"	f	class:mouse_state
+draw	shape.cpp	/^void ellipse::draw (const vertex& center, const rgbcolor& color) const {$/;"	f	class:ellipse
+draw	shape.cpp	/^void polygon::draw (const vertex& center, const rgbcolor& color) const {$/;"	f	class:polygon
+draw	shape.cpp	/^void text::draw (const vertex& center, const rgbcolor& color) const {$/;"	f	class:text
+echo_run	cid	/^sub echo_run(@) {$/;"	s
+ellipse	shape.cpp	/^ellipse::ellipse (GLfloat width, GLfloat height):$/;"	f	class:ellipse
+ellipse	shape.h	/^class ellipse: public shape {$/;"	c
+entry	graphics.cpp	/^void window::entry (int mouse_entered) {$/;"	f	class:window
+entry	object.cpp	/^void window::entry (int mouse_entered) {$/;"	f	class:window
+execname	util.cpp	/^const string& sys_info::execname() {$/;"	f	class:sys_info
+execname	util.cpp	/^void sys_info::execname (const string& argv0) {$/;"	f	class:sys_info
+execname_	util.cpp	/^string sys_info::execname_; \/\/ Must be initialized from main().$/;"	m	class:sys_info	file:
+execname_	util.h	/^      static string execname_;$/;"	m	class:sys_info
+exit_status	util.cpp	/^int sys_info::exit_status() {$/;"	f	class:sys_info
+exit_status	util.cpp	/^void sys_info::exit_status (int status) {$/;"	f	class:sys_info
+exit_status_	util.cpp	/^int sys_info::exit_status_ = EXIT_SUCCESS;$/;"	m	class:sys_info	file:
+exit_status_	util.h	/^      static int exit_status_;$/;"	m	class:sys_info
+factory_map	interp.h	/^      static map<string,factoryfn> factory_map;$/;"	m	class:interpreter
+factoryfn	interp.h	/^      typedef shape_ptr (interpreter::*factoryfn)$/;"	t	class:interpreter
+flags	debug.h	/^      static vector<bool> flags;$/;"	m	class:debugflags
+getflag	debug.cpp	/^bool debugflags::getflag (char flag) {$/;"	f	class:debugflags
+glut_bitmap_font	shape.h	/^      void* glut_bitmap_font = nullptr;$/;"	m	class:text
+green	rgbcolor.h	/^         uchar green;$/;"	m	struct:rgbcolor::__anon4::__anon5
+height	graphics.cpp	/^int window::height = 480; \/\/ in pixels$/;"	m	class:window	file:
+height	graphics.h	/^      static int height;        \/\/ in pixels$/;"	m	class:window
+height	object.cpp	/^int window::height = 480; \/\/ in pixels$/;"	m	class:window	file:
+interp_map	interp.h	/^      static map<string,interpreterfn> interp_map;$/;"	m	class:interpreter
+interpret	interp.cpp	/^void interpreter::interpret (const parameters& params) {$/;"	f	class:interpreter
+interpreter	interp.h	/^      interpreter() {}$/;"	f	class:interpreter
+interpreter	interp.h	/^class interpreter {$/;"	c
+interpreterfn	interp.h	/^      typedef void (interpreter::*interpreterfn)$/;"	t	class:interpreter
+keyboard	graphics.cpp	/^void window::keyboard (GLubyte key, int x, int y) {$/;"	f	class:window
+keyboard	object.cpp	/^void window::keyboard (GLubyte key, int x, int y) {$/;"	f	class:window
+main	graphics.cpp	/^void window::main () {$/;"	f	class:window
+main	main.cpp	/^int main (int argc, char** argv) {$/;"	f
+main	object.cpp	/^void window::main () {$/;"	f	class:window
+make_circle	interp.cpp	/^shape_ptr interpreter::make_circle (param begin, param end) {$/;"	f	class:interpreter
+make_ellipse	interp.cpp	/^shape_ptr interpreter::make_ellipse (param begin, param end) {$/;"	f	class:interpreter
+make_polygon	interp.cpp	/^shape_ptr interpreter::make_polygon (param begin, param end) {$/;"	f	class:interpreter
+make_rectangle	interp.cpp	/^shape_ptr interpreter::make_rectangle (param begin, param end) {$/;"	f	class:interpreter
+make_shape	interp.cpp	/^shape_ptr interpreter::make_shape (param begin, param end) {$/;"	f	class:interpreter
+make_square	interp.cpp	/^shape_ptr interpreter::make_square (param begin, param end) {$/;"	f	class:interpreter
+make_text	interp.cpp	/^shape_ptr interpreter::make_text (param begin, param end) {$/;"	f	class:interpreter
+motion	graphics.cpp	/^void window::motion (int x, int y) {$/;"	f	class:window
+motion	object.cpp	/^void window::motion (int x, int y) {$/;"	f	class:window
+mouse	graphics.h	/^class mouse {$/;"	c
+mouse	object.cpp	/^mouse_state window::mouse;$/;"	m	class:window	file:
+mousefn	graphics.cpp	/^void window::mousefn (int button, int state, int x, int y) {$/;"	f	class:window
+mousefn	object.cpp	/^void window::mousefn (int button, int state, int x, int y) {$/;"	f	class:window
+move	graphics.h	/^      void move (GLfloat delta_x, GLfloat delta_y) {$/;"	f	class:object
+mus	graphics.cpp	/^mouse window::mus;$/;"	m	class:window	file:
+mus	graphics.h	/^      static mouse mus;$/;"	m	class:window
+object	graphics.h	/^class object {$/;"	c
+objects	graphics.cpp	/^vector<object> window::objects;$/;"	m	class:window	file:
+objects	graphics.h	/^      static vector<object> objects;$/;"	m	class:window
+objects	object.cpp	/^vector<object> window::objects;$/;"	m	class:window	file:
+objmap	interp.h	/^      shape_map objmap;$/;"	m	class:interpreter
+operator <<	rgbcolor.cpp	/^ostream& operator<< (ostream& out, const rgbcolor& color) {$/;"	f
+operator <<	shape.cpp	/^ostream& operator<< (ostream& out, const shape& obj) {$/;"	f
+operator <<	shape.cpp	/^ostream& operator<< (ostream& out, const vertex& where) {$/;"	f
+operator string	rgbcolor.cpp	/^rgbcolor::operator string() const {$/;"	f	class:rgbcolor
+override	shape.h	/^      virtual void draw (const vertex&, const rgbcolor&) const override;$/;"	m	class:ellipse
+override	shape.h	/^      virtual void draw (const vertex&, const rgbcolor&) const override;$/;"	m	class:polygon
+override	shape.h	/^      virtual void draw (const vertex&, const rgbcolor&) const override;$/;"	m	class:text
+override	shape.h	/^      virtual void show (ostream&) const override;$/;"	m	class:ellipse
+override	shape.h	/^      virtual void show (ostream&) const override;$/;"	m	class:polygon
+override	shape.h	/^      virtual void show (ostream&) const override;$/;"	m	class:text
+param	interp.h	/^      typedef parameters::const_iterator param;$/;"	t	class:interpreter
+parameters	interp.h	/^      typedef vector<string> parameters;$/;"	t	class:interpreter
+parsefile	main.cpp	/^void parsefile (const string& infilename, istream& infile) {$/;"	f
+passivemotion	graphics.cpp	/^void window::passivemotion (int x, int y) {$/;"	f	class:window
+passivemotion	object.cpp	/^void window::passivemotion (int x, int y) {$/;"	f	class:window
+polygon	shape.cpp	/^polygon::polygon (const vertex_list& vertices): vertices(vertices) {$/;"	f	class:polygon
+polygon	shape.h	/^class polygon: public shape {$/;"	c
+pshape	graphics.h	/^      shared_ptr<shape> pshape;$/;"	m	class:object
+push_back	graphics.h	/^      void push_back (const object& obj) { objects.push_back (obj); }$/;"	f	class:window
+range	interp.h	/^      typedef pair<param,param> range;$/;"	t	class:interpreter
+rectangle	shape.cpp	/^rectangle::rectangle (GLfloat width, GLfloat height):$/;"	f	class:rectangle
+rectangle	shape.h	/^class rectangle: public polygon {$/;"	c
+red	rgbcolor.h	/^         uchar red;$/;"	m	struct:rgbcolor::__anon4::__anon5
+reshape	graphics.cpp	/^void window::reshape (int width, int height) {$/;"	f	class:window
+reshape	object.cpp	/^void window::reshape (int width, int height) {$/;"	f	class:window
+rgbcolor	rgbcolor.cpp	/^rgbcolor::rgbcolor (const string& name) {$/;"	f	class:rgbcolor
+rgbcolor	rgbcolor.h	/^   explicit rgbcolor (uchar red, uchar green, uchar blue):$/;"	f	struct:rgbcolor
+rgbcolor	rgbcolor.h	/^   explicit rgbcolor(): red(0), green(0), blue(0) {}$/;"	f	struct:rgbcolor
+rgbcolor	rgbcolor.h	/^struct rgbcolor {$/;"	s
+scan_options	main.cpp	/^void scan_options (int argc, char** argv) {$/;"	f
+selected_obj	graphics.cpp	/^size_t window::selected_obj = 0;$/;"	m	class:window	file:
+selected_obj	graphics.h	/^      static size_t selected_obj;$/;"	m	class:window
+selected_obj	object.cpp	/^size_t window::selected_obj = 0;$/;"	m	class:window	file:
+set	graphics.h	/^      void set (int x, int y) { xpos = x; ypos = y; }$/;"	f	class:mouse
+setflags	debug.cpp	/^void debugflags::setflags (const string& initflags) {$/;"	f	class:debugflags
+setheight	graphics.h	/^      static void setheight (int height_) { height = height_; }$/;"	f	class:window
+setwidth	graphics.h	/^      static void setwidth (int width_) { width = width_; }$/;"	f	class:window
+shape	shape.cpp	/^shape::shape() {$/;"	f	class:shape
+shape	shape.h	/^class shape {$/;"	c
+shape_map	interp.h	/^      typedef map <string, shape_ptr> shape_map;$/;"	t	class:interpreter
+shape_ptr	shape.h	/^typedef shared_ptr<shape> shape_ptr; $/;"	t
+show	shape.cpp	/^void ellipse::show (ostream& out) const {$/;"	f	class:ellipse
+show	shape.cpp	/^void polygon::show (ostream& out) const {$/;"	f	class:polygon
+show	shape.cpp	/^void shape::show (ostream& out) const {$/;"	f	class:shape
+show	shape.cpp	/^void text::show (ostream& out) const {$/;"	f	class:text
+special	graphics.cpp	/^void window::special (int key, int x, int y) {$/;"	f	class:window
+special	object.cpp	/^void window::special (int key, int x, int y) {$/;"	f	class:window
+split	util.cpp	/^vector<string> split (const string& line, const string& delimiters) {$/;"	f
+square	shape.cpp	/^square::square (GLfloat width): rectangle (width, width) {$/;"	f	class:square
+square	shape.h	/^class square: public rectangle {$/;"	c
+state	graphics.cpp	/^void mouse::state (int button, int state) {$/;"	f	class:mouse
+state	object.cpp	/^void mouse_state::state (int button, int state) {$/;"	f	class:mouse_state
+sys_info	util.h	/^class sys_info {$/;"	c
+sys_info_error	util.cpp	/^void sys_info_error (const string& condition) {$/;"	f
+syscall_error	util.cpp	/^void syscall_error (const string& object) {$/;"	f
+text	shape.cpp	/^text::text (void* glut_bitmap_font, const string& textdata):$/;"	f	class:text
+text	shape.h	/^class text: public shape {$/;"	c
+textdata	shape.h	/^      string textdata;$/;"	m	class:text
+ubvec	rgbcolor.h	/^      uchar ubvec[3];$/;"	m	union:rgbcolor::__anon4
+ubvec3	rgbcolor.h	/^   const GLubyte* ubvec3() { return ubvec; }$/;"	f	struct:rgbcolor
+uchar	rgbcolor.h	/^typedef unsigned char uchar;$/;"	t
+vertex	shape.h	/^typedef struct {GLfloat xpos; GLfloat ypos; } vertex;$/;"	t	typeref:struct:__anon2
+vertex_list	shape.h	/^typedef vector<vertex> vertex_list;$/;"	t
+vertices	shape.h	/^      const vertex_list vertices;$/;"	m	class:polygon
+where	debug.cpp	/^void debugflags::where (char flag, const char* file, int line,$/;"	f	class:debugflags
+width	graphics.cpp	/^int window::width = 640; \/\/ in pixels$/;"	m	class:window	file:
+width	graphics.h	/^      static int width;         \/\/ in pixels$/;"	m	class:window
+width	object.cpp	/^int window::width = 640; \/\/ in pixels$/;"	m	class:window	file:
+window	graphics.h	/^class window {$/;"	c
+xpos	shape.h	/^typedef struct {GLfloat xpos; GLfloat ypos; } vertex;$/;"	m	struct:__anon2
+ypos	shape.h	/^typedef struct {GLfloat xpos; GLfloat ypos; } vertex;$/;"	m	struct:__anon2
+~interpreter	interp.cpp	/^interpreter::~interpreter() {$/;"	f	class:interpreter
+~shape	shape.h	/^      virtual ~shape() {}$/;"	f	class:shape
